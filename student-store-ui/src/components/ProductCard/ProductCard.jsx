@@ -3,6 +3,6 @@ import "./ProductCard.css"
 
 export default function ProductCard() {
     return (
-        <p>ProductCard; not done</p>
+        <div>ProductCard; not done</div>
     )
 }
