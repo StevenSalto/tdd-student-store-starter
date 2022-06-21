@@ -5,7 +5,6 @@ import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail"
 import NotFound from "../NotFound/NotFound"
-import Footer from "../Footer/Footer"
 import axios from "axios"
 import "./App.css"
 
@@ -25,22 +24,35 @@ export default function App() {
     .catch((error) => {console.log(error)})
     .finally(() => {console.log("getData(): finished")});
   }
+  function increaseQuantity(id){
+    let tempCart = [...shoppingCart];
+    tempCart[id].quantity += 0.5;
+    
+    return tempCart;
+  }
+  function decreaseQuantity(id){
+    let tempCart = [...shoppingCart];
+    tempCart[id].quantity -= 0.5;
 
+    return tempCart;
+  }
   function handleOnToggle() {
     setIsOpen(prevIsOpen => (prevIsOpen ? false:true));
   }
   function handleAddItemToCart(productId) {
-    let itemIndex = shoppingCart.findIndex(obj => {obj.itemId === productId});
+    let itemIndex = shoppingCart.findIndex(obj => obj.itemId == productId);
+  
     if(itemIndex != -1){
-      setShoppingCart(prevShoppingCart => {prevShoppingCart[itemIndex].quantity += 1; return prevShoppingCart});
+      setShoppingCart(() => increaseQuantity(itemIndex));
     }else{
       setShoppingCart(prevShoppingCart => [...prevShoppingCart, {itemId: productId, quantity: 1}]);
     }
   }
   function handleRemoveItemFromCart(productId) {
-    let itemIndex = shoppingCart.findIndex(obj => {obj.itemId === productId});
+    let itemIndex = shoppingCart.findIndex(obj => obj.itemId == productId);
+  
     if(itemIndex != -1){
-      setShoppingCart(prevShoppingCart => {prevShoppingCart[itemIndex].quantity -= 1; return prevShoppingCart});
+      setShoppingCart(() => decreaseQuantity(itemIndex));
       if(shoppingCart[itemIndex].quantity <= 0) {
         setShoppingCart(prevShoppingCart => {prevShoppingCart.splice(itemIndex, 1); return prevShoppingCart});
       }
@@ -64,7 +76,15 @@ export default function App() {
             <Route path="/products/:productId" element={<ProductDetail />}/>
             <Route path="*" element={<NotFound />}/>
           </Routes>
-          <Footer />
+          <footer className="footer">
+            <div>
+              Categories
+              Company 
+              Support
+              Account
+              Socials 
+            </div>
+          </footer>
         </main>
       </BrowserRouter>
     </div>

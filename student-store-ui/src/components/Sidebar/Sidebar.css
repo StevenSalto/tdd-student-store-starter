@@ -1,12 +1,14 @@
 .sidebar {
-    background: #2c4047;
-    width: 100px;
-    height: 100vh;
     position: fixed;
+    height: 100vh;
+    background: #2c4047;
     z-index: 100;
 }
 
-.sidebar-components {
-    position: absolute;
-    z-index: 100;
+.open {
+    width: 575px;
+}
+
+.close {
+    width: 60px;
 }
