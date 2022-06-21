@@ -102,8 +102,8 @@ The following specifications were met on the Express backend and the React front
 
 **Logo.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
-  - [ ] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
+  - [X] Should render JSX that is wrapped by a `div` element with a `className` of `logo`
+  - [X] Should use the `Link` component from `react-router-dom` to link to the home route (`/`) when clicked
 
 **Home.jsx**
 
