@@ -12,14 +12,14 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 
 - [X] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
 - [X] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
-- [X] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-- [X] User can search for products.
-- [X] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
+- [] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
+- [] User can search for products.
+- [] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
 - [X] User can click to expand the shopping cart in the left navigation.
 - [X] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [X] User can click the '-' button on a product cart to increment that product in the shopping cart.
 - [X] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [X] User can check out, and can view receipt upon completion.
+- [] User can check out, and can view receipt upon completion.
 
 #### Stretch Features
 
@@ -37,19 +37,19 @@ The following specifications were met on the Express backend and the React front
 
 **App.jsx**
 
-  - [ ] The core App component that contains the routes for the app and does the initial data fetching
-  - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Should render the `Home.jsx` component
-    - [ ] `/products/:productId` - should render the `ProductDetail` component
-    - [ ] `*` - anything else should render the `NotFound` component
-  - [ ] Renders the `Navbar` component on every route
-  - [ ] Renders the `Sidebar` component on every route
-  - [ ] Should create **at least** the following state variables:
-    - [ ] `products` - an array of product objects that is initially empty.
-    - [ ] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
-    - [ ] `error` - a variable used to display a message when something goes wrong with the API requests.
-    - [ ] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
-    - [ ] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
+  - [X] The core App component that contains the routes for the app and does the initial data fetching
+  - [X] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [X] `/` - Should render the `Home.jsx` component
+    - [X] `/products/:productId` - should render the `ProductDetail` component
+    - [X] `*` - anything else should render the `NotFound` component
+  - [X] Renders the `Navbar` component on every route
+  - [X] Renders the `Sidebar` component on every route
+  - [X] Should create **at least** the following state variables:
+    - [X] `products` - an array of product objects that is initially empty.
+    - [X] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
+    - [X] `error` - a variable used to display a message when something goes wrong with the API requests.
+    - [ X] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
+    - [ X] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
       - [ ] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
       - [ ] When passed down to other components as a prop, it should formatted as an array of objects.
       - [ ] Each object in the array should have two fields:
