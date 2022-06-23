@@ -5,6 +5,7 @@ const Store = require('./routes/Store')
 const app=express();
 
 app.get('/store', Store);
+app.get('/store/:productId', Store);
 
 app.get('/', (req, res, next) => {
     res.status(200).json({"ping":"pong"});
