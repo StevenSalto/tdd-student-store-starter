@@ -3,7 +3,7 @@ const customData = require('../data/db.json')
 
 class Store {
     static products() {
-        return customData;
+        return {"products": customData.products};
     }
     static product(productId) {
         return customData.products[productId-1];

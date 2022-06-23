@@ -16,34 +16,35 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = React.useState([]);
   const [checkoutForm, setCheckoutForm] = React.useState("")
 
-  React.useEffect(() => {getData()},[]);
-
+  // Api call on mount
   function getData() {
-    axios.get('https://codepath-store-api.herokuapp.com/store')
+    axios.get('http://localhost:3001/store')
     .then(res => {res.data.products.forEach((pro) => {setProducts(prevProducts => [...prevProducts, pro])})})
     .catch((error) => {console.log(error)})
-    .finally(() => {console.log("getData(): finished")});
+    .finally(() => {console.log("In App.jsx: getData() finished")});
   }
+
+  // Helper functions
   function increaseQuantity(id){
     let tempCart = [...shoppingCart];
-    tempCart[id].quantity += 0.5;
-    
+    tempCart[id].quantity += 1;
     return tempCart;
   }
   function decreaseQuantity(id){
     let tempCart = [...shoppingCart];
-    tempCart[id].quantity -= 0.5;
-
+    tempCart[id].quantity -= 1;
     return tempCart;
   }
+
+  // State setter functions
   function handleOnToggle() {
     setIsOpen(prevIsOpen => (prevIsOpen ? false:true));
   }
   function handleAddItemToCart(productId) {
     let itemIndex = shoppingCart.findIndex(obj => obj.itemId == productId);
-  
+    
     if(itemIndex != -1){
-      setShoppingCart(() => increaseQuantity(itemIndex));
+      setShoppingCart(increaseQuantity(itemIndex));
     }else{
       setShoppingCart(prevShoppingCart => [...prevShoppingCart, {itemId: productId, quantity: 1}]);
     }
@@ -52,7 +53,7 @@ export default function App() {
     let itemIndex = shoppingCart.findIndex(obj => obj.itemId == productId);
   
     if(itemIndex != -1){
-      setShoppingCart(() => decreaseQuantity(itemIndex));
+      setShoppingCart(decreaseQuantity(itemIndex));
       if(shoppingCart[itemIndex].quantity <= 0) {
         setShoppingCart(prevShoppingCart => {prevShoppingCart.splice(itemIndex, 1); return prevShoppingCart});
       }
@@ -64,6 +65,8 @@ export default function App() {
   function handleOnSubmitCheckoutForm() {
 
   }
+
+  React.useEffect(() => {getData()},[]);
 
   return (
     <div className="app">

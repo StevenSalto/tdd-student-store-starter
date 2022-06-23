@@ -12,7 +12,7 @@ export default function Sidebar(props) {
       return (
         <div className="wrapper">
           <ShoppingCart isOpen={props.isOpen} products={props.products} shoppingCart={props.shoppingCart}/>
-          <CheckoutForm/>
+          <CheckoutForm isOpen={props.isOpen} shoppingCart={props.shoppingCart} checkoutForm={props.checkoutForm} handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm}/>
         </div>
       )
     } else {

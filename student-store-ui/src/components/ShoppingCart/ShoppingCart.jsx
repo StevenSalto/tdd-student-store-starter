@@ -3,13 +3,12 @@ import "./ShoppingCart.css"
 
 //props: isOpen, products, shoppingCart: itemId, quantity,
 export default function ShoppingCart({isOpen, products, shoppingCart}) {
-    console.log(shoppingCart)
     function CartTable(obj) {
         console.log(obj, products[obj.itemId])
         let product = products[obj.itemId - 1];
         let productsPrice = product.price * obj.quantity;
         return (
-            <div className="product">
+            <div className="product" key={obj.itemId}>
                 <div className="cart-product-name">{product.name}</div>
                 <div className="cart-product-quantity">{obj.quantity}</div>
                 <div className="cart-product-unit-price">{product.price}</div>

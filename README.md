@@ -302,4 +302,4 @@ Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-Shoutout to my pod for pointing out logical errors in my code.
+Shoutout to my pod for pointing out logic errors in my code.

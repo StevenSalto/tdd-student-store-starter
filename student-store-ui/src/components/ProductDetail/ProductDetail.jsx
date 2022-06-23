@@ -8,22 +8,21 @@ import ProductCard from "../ProductCard/ProductCard";
 
 export default function ProductDetail({handleAddItemToCart, handleRemoveItemFromCart}) {
     let productId = useParams().productId;
-    const [producto, setProduct] = React.useState({});
-    let url = 'https://codepath-store-api.herokuapp.com/store/' + productId;
+    const [product, setProduct] = React.useState({});
+    let url = 'http://localhost:3001/store/' + productId;
     function getData() {
         axios.get(url)
-        .then((res) => {setProduct(res.data.product); console.log(res, producto)})
-        .catch((error) => {console.log(error); console.log(url, productId)})
-        .finally(() => {console.log("ProductDetail, getData(): finished ")});
+        .then((res) => {setProduct(res.data)})
+        .catch((error) => {console.log(error); console.log(url, product)})
+        .finally(() => {console.log("ProductDetail, getData(): finished ", product)});
       }
-    React.useState(() => {
-        getData();
-    })
+    React.useEffect(() => {getData()},[]);
     return (
         <div className="product-detail">
-            <div>This is ProductDetail</div>
-            <ProductCard product={producto} productId={productId} quantity={0} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} showDescription={true}/>
+            <ProductCard product={product} productId={productId} quantity={0} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} showDescription={true}/>
             <NotFound />
         </div>
     )
 }
+
+//            <ProductCard product={product} productId={productId} quantity={0} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart} showDescription={true}/>
