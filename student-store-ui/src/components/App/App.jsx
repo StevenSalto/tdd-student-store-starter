@@ -24,6 +24,10 @@ export default function App() {
     .finally(() => {console.log("In App.jsx: getData() finished")});
   }
 
+  function postData() {
+
+  }
+
   // Helper functions
   function increaseQuantity(id){
     let tempCart = [...shoppingCart];
@@ -59,7 +63,7 @@ export default function App() {
       }
     }
   }
-  function handleOnCheckoutFormChange() {
+  function handleOnCheckoutFormChange(name, value) {
 
   }
   function handleOnSubmitCheckoutForm() {
