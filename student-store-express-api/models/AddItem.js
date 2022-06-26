@@ -1,6 +1,6 @@
 const express = require("express")
 const {storage} = require("../data/storage")
-const customData = require('../data/db.json')
+let customData = require('../data/db.json')
 
 class AddItem {
     static addItem(shoppingCart, user) {
@@ -18,9 +18,8 @@ class AddItem {
                         + currentdate.getMinutes() + ":" 
                         + currentdate.getSeconds();
 
-        let purchase={"id": customData.purchases.length + 1, 'name':user.name, 'email':user.email, 'order': shoppingCart, "total":totalCost, 'createdAt': datetime};
-        storage.get("purchases").push({"cock":"csdc"}).write();
-        console.log("response updated purchases: ",customData.purchases.length);
+        let purchase={"id": storage.get("purchases").__wrapped__.purchases.length + 1, 'name':user.name, 'email':user.email, 'order': shoppingCart, "total":totalCost, 'createdAt': datetime};
+        storage.get("purchases").push(purchase).write();
         return JSON.stringify(purchase);
     }
     static hasDuplicates(shoppingCart) {
