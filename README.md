@@ -267,17 +267,17 @@ The following specifications were met on the Express backend and the React front
       - [X] When either the `shoppingCart` or `user` fields are missing, it should throw a `400` error.
       - [X] If there are duplicate items in the `shoppingCart`, it should throw a `400` error.
       - [X] If either the `quantity` or `itemId` field is missing for any of the items in the `shoppingCart`, a `400` error should be thrown.
-      - [ ] When both are there, it should calculate the total cost of all the items (including quantities), add a `8.75%` tax to the total, and create a new purchase object containing 6 required fields and 1 optional field:
+      - [X] When both are there, it should calculate the total cost of all the items (including quantities), add a `8.75%` tax to the total, and create a new purchase object containing 6 required fields and 1 optional field:
         - **required**:
-          - [ ] `id` - the new `id` of the purchase should be equal to one more than the current number of existing purchases
-          - [ ] `name` - the name of the user making the purchase
-          - [ ] `email` - the email of the user making the purchase
-          - [ ] `order` - the `shoppingCart` value sent in the `POST` request
-          - [ ] `total` - the calculated total of the order
-          - [ ] `createdAt` - a string representation of the date and time when the order was placed
+          - [X] `id` - the new `id` of the purchase should be equal to one more than the current number of existing purchases
+          - [X] `name` - the name of the user making the purchase
+          - [X] `email` - the email of the user making the purchase
+          - [X] `order` - the `shoppingCart` value sent in the `POST` request
+          - [X] `total` - the calculated total of the order
+          - [X] `createdAt` - a string representation of the date and time when the order was placed
         - **optional**:
           - [ ] `receipt` - text describing the order (what might go on a receipt)
-      - [ ] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
+      - [X] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
 
 Reflection
 
