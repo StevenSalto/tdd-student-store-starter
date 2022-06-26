@@ -132,30 +132,30 @@ The following specifications were met on the Express backend and the React front
 
 **ProductDetail.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `product-detail`
-  - [ ] Should accept **at least** the following props:
+  - [X] Should render JSX that is wrapped by a `div` element with a `className` of `product-detail`
+  - [x] Should accept **at least** the following props:
     - `handleAddItemToCart` - handler function defined in the `App.jsx` component
     - `handleRemoveItemToCart` - handler function defined in the `App.jsx` component
-  - [ ] Should define **at least** a `product` state variable and updater
-  - [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `productId` param from the url.
-  - [ ] When the component is mounted to the screen...
-    - [ ] It should make a `GET` request to the `/store/:productId` endpoint with the `axios.get` method.
-    - [ ] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
-    - [ ] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
-    - [ ] It should store the `product` received by the request in state and then render the `ProductView` component.
-    - [ ] If no `product` is found with that `id`, it should render the `NotFound` component
+  - [X] Should define **at least** a `product` state variable and updater
+  - [X] It should leverage the `useParams` hook from `react-router-dom` to extract the `productId` param from the url.
+  - [X] When the component is mounted to the screen...
+    - [X] It should make a `GET` request to the `/store/:productId` endpoint with the `axios.get` method.
+    - [X] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
+    - [X] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
+    - [X] It should store the `product` received by the request in state and then render the `ProductView` component.
+    - [] If no `product` is found with that `id`, it should render the `NotFound` component
 
 **ProductView.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with a `className` of `product-view`
-  - [ ] Should accept **at least** the following props:
+  - [X] Should render JSX that is wrapped by a `div` element with a `className` of `product-view`
+  - [X] Should accept **at least** the following props:
     - `product` - the `product` object returned by the API request
     - `productId` - the id of the product extracted from the url
     - `quantity` - the quantity for this product found in the `shoppingCart`
     - `handleAddItemToCart` - handler function
     - `handleRemoveItemToCart` - handler function
-  - [ ] It should display an `h1` element with the `className` of `product-id` that contains the text: `Product #` followed by the `productId` prop
-  - [ ] It should render a `ProductCard` component and pass it the props it needs. It should also set the `showDescription` prop to `true` for this product card.
+  - [X] It should display an `h1` element with the `className` of `product-id` that contains the text: `Product #` followed by the `productId` prop
+  - [X] It should render a `ProductCard` component and pass it the props it needs. It should also set the `showDescription` prop to `true` for this product card.
 
 **ProductCard.jsx**
 
@@ -182,8 +182,8 @@ The following specifications were met on the Express backend and the React front
 
 **Sidebar.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
-  - [ ] Should accept **at least** the following props (and probably a few more):
+  - [X] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
+  - [X] Should accept **at least** the following props (and probably a few more):
     - `isOpen` - boolean representing the open/closed state of the Sidebar
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
     - `products` - the array of products fetched from the API
@@ -191,9 +191,9 @@ The following specifications were met on the Express backend and the React front
     - `handleOnCheckoutFormChange` - handler function to update the `checkoutForm` object
     - `handleOnSubmitCheckoutForm` - handler function to submit the user's order to the API
     - `handleOnToggle` - handler function to toggle open/closed `Sidebar` state
-  - [ ] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
-  - [ ] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
-  - [ ] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
+  - [X] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
+  - [X] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
+  - [X] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
 
 **ShoppingCart.jsx**
 
@@ -242,31 +242,31 @@ The following specifications were met on the Express backend and the React front
         - [ ] The `checkoutForm` should be reset to its default state.
 
 **Server** - Create an Express server
-  - [ ] Wire up the appropriate middleware and error handlers in the `app.js` file
-  - [ ] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
-  - [ ] Have a `server.js` file that starts the app by listening on port `3001`.
+  - [X] Wire up the appropriate middleware and error handlers in the `app.js` file
+  - [X] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
+  - [X] Have a `server.js` file that starts the app by listening on port `3001`.
 
 **Models** - The API should use a `Store` model that handles the following
-  - [ ] List all products currently in the `db.json` file
-  - [ ] Fetch a single product by its id
-  - [ ] Create a purchase order
+  - [X] List all products currently in the `db.json` file
+  - [X] Fetch a single product by its id
+  - [X] Create a purchase order
 
 **Routes** - The API should contain a route mounted at the `/store` endpoint
-  - [ ] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
-  - [ ] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
-  - [ ] It should allow `POST` requests to the `/store` endpoint:
-    - [ ] The endpoint should create purchase orders for users and save them to the `db.json` file
+  - [X] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
+  - [X] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
+  - [X] It should allow `POST` requests to the `/store` endpoint:
+    - [] The endpoint should create purchase orders for users and save them to the `db.json` file
     - [ ] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
-      - [ ] The `shoppingCart` field should contain the user's order.
-        - [ ] This should be an array of objects.
-        - [ ] Each object in the array should have two fields:
+      - [X] The `shoppingCart` field should contain the user's order.
+        - [X] This should be an array of objects.
+        - [X] Each object in the array should have two fields:
           <!-- - [ ] The `item` field should store an object of the item being purchased -->
-          - [ ] The `itemId` field should store the `id` of the item being purchased
-          - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-      - [ ] The `user` field should contain the name and email of the person placing the order.
-      - [ ] When either the `shoppingCart` or `user` fields are missing, it should throw a `400` error.
-      - [ ] If there are duplicate items in the `shoppingCart`, it should throw a `400` error.
-      - [ ] If either the `quantity` or `itemId` field is missing for any of the items in the `shoppingCart`, a `400` error should be thrown.
+          - [x] The `itemId` field should store the `id` of the item being purchased
+          - [X] The `quantity` field should store a number representing how many of that item the user is purchasing.
+      - [X] The `user` field should contain the name and email of the person placing the order.
+      - [X] When either the `shoppingCart` or `user` fields are missing, it should throw a `400` error.
+      - [X] If there are duplicate items in the `shoppingCart`, it should throw a `400` error.
+      - [X] If either the `quantity` or `itemId` field is missing for any of the items in the `shoppingCart`, a `400` error should be thrown.
       - [ ] When both are there, it should calculate the total cost of all the items (including quantities), add a `8.75%` tax to the total, and create a new purchase object containing 6 required fields and 1 optional field:
         - **required**:
           - [ ] `id` - the new `id` of the purchase should be equal to one more than the current number of existing purchases
