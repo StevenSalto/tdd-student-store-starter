@@ -12,9 +12,9 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 
 - [X] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
 - [X] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
-- [] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-- [] User can search for products.
-- [] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
+- [X] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
+- [X] User can search for products.
+- [X] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
 - [X] User can click to expand the shopping cart in the left navigation.
 - [X] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [X] User can click the '-' button on a product cart to increment that product in the shopping cart.
@@ -23,10 +23,10 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 
 #### Stretch Features
 
-- [ ] User can click in the top navigation bar to scroll to the relevant section.
-- [ ] User sees a "not found" display when searching for a nonexistent product.
-- [ ] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
-- [ ] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
+- [] User can click in the top navigation bar to scroll to the relevant section.
+- [] User sees a "not found" display when searching for a nonexistent product.
+- [] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
+- [] Build a page in the UI that displays the list of all past orders and lets the user click on any individual order to take them to a more detailed page of the transaction.
 - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 
 ### Passing Automated Tests
@@ -62,8 +62,8 @@ The following specifications were met on the Express backend and the React front
     - [X] If the request does not complete successfully, or there are no `products` found in the response,
             it should create an error message and store it in the `error` state variable.
   - [X] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
-    - [ ] Define as many as are needed.
-    - [ ] At minimum, **create these five handlers**:
+    - [X] Define as many as are needed.
+    - [X] At minimum, **create these five handlers**:
       - [X] The **`handleOnToggle`** function. When called...
         - [X] It should toggle the open/closed state of the `Sidebar`.
       - [X] The **`handleAddItemToCart`** function. When called...
@@ -143,7 +143,7 @@ The following specifications were met on the Express backend and the React front
     - [X] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
     - [X] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
     - [X] It should store the `product` received by the request in state and then render the `ProductView` component.
-    - [] If no `product` is found with that `id`, it should render the `NotFound` component
+    - [X] If no `product` is found with that `id`, it should render the `NotFound` component
 
 **ProductView.jsx**
 
@@ -178,7 +178,7 @@ The following specifications were met on the Express backend and the React front
   - [X] Should render two `buttons` elements...
     - [X] One button with a `className` of `add`. When clicked, it should call the `handleAddItemToCart` function with the `id` of the `product` as its only argument.
     - [X] One button with a `className` of `remove`. When clicked, it should call the `handleRemoveItemFromCart` function with the `id` of the `product` as its only argument.
-  - [ ] Should display the current quantity of items that the user has selected in their shopping cart. The quantity should be rendered inside an element with the `className` of `product-quantity`. If none of that particular item have been added to the shopping cart, it should render nothing there.
+  - [X] Should display the current quantity of items that the user has selected in their shopping cart. The quantity should be rendered inside an element with the `className` of `product-quantity`. If none of that particular item have been added to the shopping cart, it should render nothing there.
 
 **Sidebar.jsx**
 
@@ -205,9 +205,9 @@ The following specifications were met on the Express backend and the React front
   - [X] For every item in the `shoppingCart`:
     - [X] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
     - [X] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
-  - [ ] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
-  - [ ] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
+  - [X] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
+  - [X] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
+  - [X] If no items exist in the `shoppingCart`, it should render this message: `"No items added to cart yet. Start shopping now!"` inside an element with the `className` of `notification`
 
 **CheckoutForm.jsx**
 
@@ -255,8 +255,8 @@ The following specifications were met on the Express backend and the React front
   - [X] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
   - [X] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
   - [X] It should allow `POST` requests to the `/store` endpoint:
-    - [] The endpoint should create purchase orders for users and save them to the `db.json` file
-    - [ ] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
+    - [X] The endpoint should create purchase orders for users and save them to the `db.json` file
+    - [X] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
       - [X] The `shoppingCart` field should contain the user's order.
         - [X] This should be an array of objects.
         - [X] Each object in the array should have two fields:
