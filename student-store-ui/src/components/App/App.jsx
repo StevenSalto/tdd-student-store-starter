@@ -14,7 +14,7 @@ export default function App() {
   const [error, setError] = React.useState("");
   const [isOpen, setIsOpen] = React.useState(false);
   const [shoppingCart, setShoppingCart] = React.useState([]);
-  const [checkoutForm, setCheckoutForm] = React.useState("")
+  const [checkoutForm, setCheckoutForm] = React.useState({"name":"", "email":""});
 
   // Api call on mount
   function getData() {
@@ -22,10 +22,6 @@ export default function App() {
     .then(res => {res.data.products.forEach((pro) => {setProducts(prevProducts => [...prevProducts, pro])})})
     .catch((error) => {console.log(error)})
     .finally(() => {console.log("In App.jsx: getData() finished")});
-  }
-
-  function postData() {
-
   }
 
   // Helper functions
@@ -63,11 +59,24 @@ export default function App() {
       }
     }
   }
-  function handleOnCheckoutFormChange(name, value) {
-
+  function handleOnCheckoutFormChange(aname, value) {
+    console.log(aname, value);
+    let tempState = checkoutForm;
+    tempState[aname]= value;
+    setCheckoutForm(tempState)
   }
   function handleOnSubmitCheckoutForm() {
-
+    console.log(checkoutForm)
+    axios.post('http://localhost:3001/store', {
+      "user" : {
+        "email" : checkoutForm.email,
+        "name" : checkoutForm.name
+      },
+      "shoppingCart" : shoppingCart
+    })
+    .then()
+    .catch((err) => {console.log(err)})
+    .finally(console.log("done with submition"));
   }
 
   React.useEffect(() => {getData()},[]);

@@ -7,12 +7,13 @@ export default function Sidebar(props) {
   let toggleSidebar = (props.isOpen ? "open":"close")
   console.log(props.isOpen, props.shoppingCart)
 
-  function SidebarComponents() {
+  function SidebarComponents({checkoutForm}) {
+    console.log(checkoutForm)
     if(props.isOpen) {
       return (
         <div className="wrapper">
           <ShoppingCart isOpen={props.isOpen} products={props.products} shoppingCart={props.shoppingCart}/>
-          <CheckoutForm isOpen={props.isOpen} shoppingCart={props.shoppingCart} checkoutForm={props.checkoutForm} handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm}/>
+          <CheckoutForm isOpen={props.isOpen} shoppingCart={props.shoppingCart} checkoutForm={checkoutForm} handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm}/>
         </div>
       )
     } else {
@@ -27,7 +28,7 @@ export default function Sidebar(props) {
   return (
     <section className={"sidebar " + toggleSidebar}>
       <button className={"toggle-button"} onClick={props.handleOnToggle}>UwU</button>
-      <SidebarComponents />
+      <SidebarComponents checkoutForm={props.checkoutForm}/>
     </section>
   )
 }

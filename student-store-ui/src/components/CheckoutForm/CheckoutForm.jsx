@@ -5,8 +5,9 @@ export default function CheckoutForm({isOpen, shoppingCart, checkoutForm, handle
     console.log("checkoutForm", checkoutForm );
     return (
         <div className="checkout-form">
-            <input className="checkout-form-input" type="email" name="email" placeholder="student@codepath.org" value={checkoutForm.email} onChange={handleOnCheckoutFormChange}/>
-            <input className="checkout-form-input" type="text" name="name" placeholder="Student Name" value={checkoutForm.name} onChange={handleOnCheckoutFormChange}/>
+
+            <input className="checkout-form-input" type="email" name="email" placeholder="student@codepath.org" value={checkoutForm.value} onChange={(e) => {console.log("checkoutForm safwfe", checkoutForm, checkoutForm.email ); handleOnCheckoutFormChange("email", e.target.value)}}/>
+            <input className="checkout-form-input" type="text" name="name" placeholder="Student Name" value={checkoutForm.value} onChange={(e) => handleOnCheckoutFormChange("name", e.target.value)}/>
             <button className="checkout-button" onClick={handleOnSubmitCheckoutForm}>Checkout</button>
         </div>
     )
